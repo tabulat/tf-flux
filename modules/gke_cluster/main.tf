@@ -21,6 +21,10 @@ resource "google_container_node_pool" "this" {
 
   node_config {
     machine_type = var.GKE_MACHINE_TYPE
+    disk_size_gb = 20
+    oauth_scopes = [
+      "https://www.googleapis.com/auth/cloud-platform"
+    ]
   }
 }
 
