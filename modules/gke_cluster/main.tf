@@ -10,15 +10,6 @@ resource "google_container_cluster" "this" {
 
   initial_node_count       = 1
   remove_default_node_pool = true
-
-    workload_identity_config {
-    workload_pool = "${var.GOOGLE_PROJECT}.svc.id.goog"
-  }
-  node_config {
-        workload_metadata_config {
-      mode = "GKE_METADATA"
-    }
-  }
 }
 
 resource "google_container_node_pool" "this" {
@@ -44,16 +35,7 @@ module "gke_auth" {
   location             = var.GOOGLE_REGION
 }
 
-
-data "google_client_config" "current" {}
-
-data "google_container_cluster" "main" {
-  name     = google_container_cluster.this.name
-  location = var.GOOGLE_REGION
+resource "local_file" "kubeconfig" {
+  content  = module.gke_auth.kubeconfig_raw
+  filename = "${path.module}/kubeconfig"
 }
-
-#resource "local_file" "kubeconfig" {
-#  content  = module.gke_auth.kubeconfig_raw
-#  filename = "${path.module}/kubeconfig"
-#  file_permission = "0400"
-#}

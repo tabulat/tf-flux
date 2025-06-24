@@ -3,6 +3,12 @@ variable "github_repository" {
   description = "GitHub repository to store Flux manifests"
 }
 
+variable "flux_namespace" {
+  type        = string
+  default     = "flux-system"
+  description = "GitHub repository to store Flux manifests"
+}
+
 variable "target_path" {
   type        = string
   default     = "clusters"
@@ -20,8 +26,20 @@ variable "private_key" {
   description = "The private key used to authenticate with the Git repository"
 }
 
-variable "config_path" {
+variable "config_host" {
   type        = string
-  default     = "~/.kube/config"
-  description = "The path to the kubeconfig file"
+  default     = "gke"
+  description = "The url for gke"
+}
+
+variable "config_token" {
+  type        = string
+  default     = "token"
+  description = "The token for gke"
+}
+
+variable "config_ca" {
+  type        = string
+  default     = "ca"
+  description = "The ca for gke"
 }
