@@ -20,6 +20,7 @@ profile.cov
 terraform.tfstate
 terraform-provider*
 *.tfvars
+errored.tfstate
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
