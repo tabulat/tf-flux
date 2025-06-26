@@ -34,7 +34,7 @@ module "gke_auth" {
     google_container_cluster.this
   ]
   source               = "terraform-google-modules/kubernetes-engine/google//modules/auth"
-  version              = ">=24.0.0" # або новіший стабільний
+  version              = ">=24.0.0" # newest
   project_id           = var.GOOGLE_PROJECT
   cluster_name         = google_container_cluster.this.name
   location             = var.GOOGLE_REGION
@@ -45,7 +45,7 @@ data "google_client_config" "current" {}
 data "google_container_cluster" "main" {
   name     = google_container_cluster.this.name
   location = var.GOOGLE_REGION  
-}
+} 
 
 #resource "local_file" "kubeconfig" {
 #  content  = module.gke_auth.kubeconfig_raw
