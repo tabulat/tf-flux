@@ -18,7 +18,7 @@ module "gke_cluster" {
   source         = "./modules/gke_cluster"
   GOOGLE_REGION  = var.GOOGLE_REGION
   GOOGLE_PROJECT = var.GOOGLE_PROJECT
-  GKE_NUM_NODES  = 1
+  GKE_NUM_NODES  = 1  
 }
 
 module "tls_private_key" {

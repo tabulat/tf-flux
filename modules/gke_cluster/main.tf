@@ -9,7 +9,8 @@ resource "google_container_cluster" "this" {
   location = var.GOOGLE_REGION
 
   initial_node_count       = 1
-  remove_default_node_pool = true
+  remove_default_node_pool = true  
+  deletion_protection      = false
 }
 
 resource "google_container_node_pool" "this" {
@@ -43,7 +44,7 @@ data "google_client_config" "current" {}
 
 data "google_container_cluster" "main" {
   name     = google_container_cluster.this.name
-  location = var.GOOGLE_REGION
+  location = var.GOOGLE_REGION  
 }
 
 resource "local_file" "kubeconfig" {
