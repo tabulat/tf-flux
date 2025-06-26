@@ -19,11 +19,11 @@ coverage.*
 profile.cov
 terraform.tfstate
 terraform-provider*
-.terraform/
 *.tfvars
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+.terraform/
 
 # Go workspace file
 go.work

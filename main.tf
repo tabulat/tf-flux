@@ -32,6 +32,6 @@ module "flux_bootstrap" {
   private_key       = module.tls_private_key.private_key_pem  
   config_host       = module.gke_cluster.config_host
   config_token      = module.gke_cluster.config_token
-  config_ca         = module.gke_cluster.config_ca
+  config_ca         = module.gke_cluster.config_ca  
   github_token      = var.GITHUB_TOKEN
 }
