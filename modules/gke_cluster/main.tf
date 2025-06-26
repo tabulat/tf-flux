@@ -47,7 +47,7 @@ data "google_container_cluster" "main" {
   location = var.GOOGLE_REGION  
 }
 
-resource "local_file" "kubeconfig" {
-  content  = module.gke_auth.kubeconfig_raw
-  filename = "${path.module}/kubeconfig"
-}
+#resource "local_file" "kubeconfig" {
+#  content  = module.gke_auth.kubeconfig_raw
+#  filename = "${path.module}/kubeconfig"
+#}
